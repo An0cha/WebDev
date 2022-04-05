@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="./css/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="./css/myscript.js"></script>
+<title>Keep Learning</title>
+</head>
+<body>
+<div class="main">
+    <div class="topnav" id="myTopnav">
+        <a class="active" href="index.html">Start</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="about.html">About</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+    </div>
+<p id="motto">KEEP LEARNING</p>
+    <div id="challenge">
+    <h2><a href="https://cloudresumechallenge.dev/docs/the-challenge/aws/" target="_blank">The Cloud Resume Challenge - AWS</a></h2>
+    
+    <ol>
+        <li>Certification</li>        
+            <p>Your resume needs to have the <a href ="https://aws.amazon.com/certification/certified-cloud-practitioner/" target="_blank">AWS Cloud Practitioner certification</a> on it. This is an introductory certification that orients you on the industry-leading AWS cloud, if you have a more advanced AWS cert, that's fine but not expected. You can sit this exam online for $100 USD. A Cloud Guru offers exam prep resources.</p>
+        <li>HTML</li>
+            <p>Your resume needs to be written in <a href = "https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">HTML</a>. Not a Word doc, not a PDF. <a href ="https://codepen.io/emzarts/pen/OXzmym" target="_blank">Here is an example of what I mean.</a></a></p>
+            
+        <li>CSS</li>
+            <p>Your resume needs to be styled with <a href="https://www.w3schools.com/css/" target="_blank">CSS</a>. No worries if you're not a designer - neither am I. It doesn't have to be fancy. But we need to see something other than raw HTML when we open the webpage.</p>
+            
+        <li>Static Website</li>
+            <p>Your HTML resume should be deployed online as an <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html" target="_blank">Amazon S3 static website</a>. Services like Netlify and GitHub Pages are great and I would normally recommend them for personal static site deployments, but they make things a little too abstract for our purposes here. Use S3.</p>
+            
+        <li>HTTPS</li>
+            <p>The S3 website URL should use <a href ="https://www.cloudflare.com/learning/ssl/what-is-https/" target="_blank">HTTPS</a> for security. You will need to use <a href ="https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-s3-amazon-cloudfront-a-match-made-in-the-cloud/" target="_blank">Amazon CloudFront</a> to help with this.</p>
+            
+        <li>DNS</li>
+            <p>Point a custom DNS domain name to the CloudFront distribution, so your resume can be accessed at something like my-c00l-resume-website.com. You can use <a href ="https://aws.amazon.com/route53/" target="_blank">Amazon Route 53</a> or any other DNS provider for this. A domain name usually costs about ten bucks to register.</p>
+            
+        <li>Javascript</li>
+            <p>Your resume webpage should include a visitor counter that displays how many people have accessed the site. You will need to write a bit of <a href ="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Javascript</a> to make this happen. Here is a <a href ="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank">helpful tutorial</a> to get you started in the right direction.</p>
+            
+        <li>Database</li>
+            <p>The visitor counter will need to retrieve and update its count in a database somewhere. I suggest you use Amazon's <a href ="https://aws.amazon.com/dynamodb/" target="_blank">DynamoDB</a> for this. (Use on-demand pricing for the database and you'll pay essentially nothing, unless you store or retrieve much more data than this project requires.) Here is a <a href ="https://linuxacademy.com/course/dynamo-db-deep-dive/" target="_blank">great free course</a> on DynamoDB.</p>
+            
+        <li>API</li>
+            <p>Do not communicate directly with DynamoDB from your Javascript code. Instead, you will need to create an <a href ="https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f" target="_blank">API</a> that accepts requests from your web app and communicates with the database. I suggest using AWS's API Gateway and Lambda services for this. They will be free or close to free for what we are doing.</p>
+            
+        <li>Python</li>
+            <p>You will need to write a bit of code in the Lambda function; you could use more Javascript, but it would be better for our purposes to explore Python - a common language used in back-end programs and scripts - and its <a href ="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html" target="_blank">boto3 library for AWS</a>. Here is a good, free <a href="https://www.learnpython.org/" target="_blank">Python tutorial</a>.</p>
+            
+        <li>Tests</li>
+            <p>You should also include some tests for your Python code. <a href ="https://realpython.com/python-testing/" target="_blank">Here are some resources</a> on writing good Python tests.</p>
+            
+        <li>Infrastructure as Code</li>
+            <p>You should not be configuring your API resources - the DynamoDB table, the API Gateway, the Lambda function - manually, by clicking around in the AWS console. Instead, define them in an <a href ="https://aws.amazon.com/serverless/sam/" target="_blank">AWS Serverless Application Model (SAM) template</a> and deploy them using the AWS SAM CLI. This is called “infrastructure as code” or IaC. It saves you time in the long run.</p>
+            
+        <li>Source Control</li>
+            <p>You do not want to be updating either your back-end API or your front-end website by making calls from your laptop, though. You want them to update automatically whenever you make a change to the code. (This is called <a href="https://help.github.com/en/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration" target="_blank">continuous integration and deployment, or CI/CD</a>.) Create a <a href ="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository" target="_blank">GitHub repository</a> for your backend code.</p>
+            
+        <li>CI/CD (Back end)</li>
+            <p>Set up <a href ="https://help.github.com/en/actions/getting-started-with-github-actions/about-github-actions" target="_blank">GitHub Actions</a> such that when you push an update to your Serverless Application Model template or Python code, your Python tests get run. If the tests pass, the SAM application should get packaged and deployed to AWS.</p>
+            
+        <li>CI/CD (Front end)</li>
+            <p>Create a second GitHub repository for your website code. Create GitHub Actions such that when you push new website code, the S3 bucket automatically gets updated. (You may need to <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html" target="_blank">invalidate your CloudFront cache</a> in the code as well.) Important note: DO NOT commit AWS credentials to source control! Bad hats will find them and use them against you!</p>
+            
+        <li>Blog post</li>
+            <p>Finally, in the text of your resume, you should link a short blog post describing some things you learned while working on this project. <a href ="https://dev.to/" target="_blank">Dev.to</a> is a great place to publish if you don't have your own blog.</p>
+    </ol>
+            <p>And that's the gist of it! For strategies, tools, and further challenges to help you get hired in cloud, check out <a href="https://forrestbrazeal.gumroad.com/l/cloud-resume-challenge-book" target="_blank">the Cloud Resume Challenge book</a>.</p>
+</div>
+<footer class="grow" >
+    <a href="https://www.linkedin.com/in/anocha-yudhthonglang-29b5a848/" target="_blank"><img src="./images/linkedin_icon.png" width="40px"></a>
+    <a href="https://www.facebook.com/arno.kung.5/" target="_blank"><img src="./images/fb_icon.png" alt="see mo on faceBook" width="40px"></a>
+</footer> 
+</div>
+</body>
+</html>
