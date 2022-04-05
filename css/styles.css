@@ -1,10 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+
 div {
     max-width: 1024px;
     margin: auto;
     padding: 0;
 }
 .main {
-  animation: fade-in-move-down 0.7s;
+  animation: fade-in-move-down 0.9s;
 }
 
 @keyframes fade-in-move-down {
@@ -28,6 +32,7 @@ div {
   font-size: 200%;
   text-align: center;
 }
+
 /*fade in animation
 .animate {
     -webkit-animation-duration: 3s;
@@ -310,4 +315,8 @@ footer {
     border-top: solid 2px #ddd; 
     /*border-radius: 10px;*/
     text-align: center;
+}
+
+.right{
+  float: right;
 }
