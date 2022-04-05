@@ -17,6 +17,17 @@ div {
     transform: translateY(0);
   }
 }
+
+#errorpage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  min-height: 100vh;
+  font-size: 200%;
+  text-align: center;
+}
 /*fade in animation
 .animate {
     -webkit-animation-duration: 3s;
