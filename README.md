@@ -1,7 +1,7 @@
-# Demo
+# Cloud Resume Challenge
 
-Some description!
+The purpose of this repository is to create online resume utilizing the power of cloud technology.
 
 ## Subheader
 
-Watch tutorial on YouTube.
+I found this challeng on https://cloudresumechallenge.dev/
