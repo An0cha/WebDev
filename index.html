@@ -7,6 +7,13 @@
 <link rel="stylesheet" type="text/css" href="./css/styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="./css/myscript.js"></script>
+<script>
+    fetch('https://92pa1yuyzc.execute-api.us-east-1.amazonaws.com/Prod/get')
+          .then(response => response.json())
+          .then((data) => {
+              document.getElementById('replaceme').innerText = data.count
+          })
+  </script>
 <title>Keep Learning</title>
 </head>
 <body>
@@ -80,6 +87,10 @@
     <a href="https://www.facebook.com/arno.kung.5/" target="_blank"><img src="./images/fb_icon.png" alt="see mo on faceBook" width="40px"></a>
     <div class="right"><a href="index.html" style="text-align: right;"><img src="./images/arrowUp.png" width="25px"></a></div>
 </footer> 
+<p>
+    Visitors:
+    <span id="replaceme" />
+</p>
 </div>
 </body>
 </html>
