@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <div class="main">
+    <head>
+
+    <title>Keep Learning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="./css/myscript.js"></script>
+    </head>
+
+    <body>
+        
+
+    <!-- Navigation bar -->
+    <div class="topnav" id="myTopnav">
+        <a class="active" href="index.html">Start</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="ps.html">CLI for fun</a>
+        <a href="about.html">Who Am I</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>  
+    <p>This is how to extract last downloaded file from a specific location to another location using Powershell command line interface.</p>
+    <p>- Create new variable and add specific path to variable</p>
+    <p>$dir = "E:\data\zip"</p>
+    <p>- Create another variable then add Powershell Command get the lastest filename</p>
+    <p>- Create another variable to store only filename without extention for example lastest downloaded.zip</p>
+    <p>$latestFile = Get-ChildItem -Path $dir | Sort-Object LastWriteTime | Select-Object -Last 1 </p>
+    <p>- I wanted to expand only filename to new destination, so I use PowerShell .BaseName to get only file name.</p>
+    <p>$fileNoExt = $latestFile.BaseName</p>
+    <p>- I wanted to see file name, so I use command Write-Output follow by variable name</p>
+    <p>Write-Output $fileNoExt</p>
+    <p>- The following command will extract downloaded.zip to destination, -Force will override existing files, -Verbose will display progress</p>
+    <p>Expand-Archive -Path e:\data\zip\$latestFile -DestinationPath j:\data\$fileNoExt -Force -Verbose</p>
+
+</body>
+<footer class="grow" >
+    <a href="https://www.linkedin.com/in/anocha-yudhthonglang-29b5a848/" target="_blank"><img src="./images/linkedin_icon.png" width="40px"></a>
+    <a href="https://www.facebook.com/arno.kung.5/" target="_blank"><img src="./images/fb_icon.png" alt="see mo on faceBook" width="40px"></a>
+    <div class="right"><a href="blogs.html" style="text-align: right;"><img src="./images/arrowUp.png" width="25px"></a></div>
+</footer> 
+</div>
+</html>
