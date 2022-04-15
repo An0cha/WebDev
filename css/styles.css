@@ -280,14 +280,17 @@ h2 a {
   margin-top: 0px;
   color: white;
 }  
-.textarea{
+.textarea {
   background-color: #232F3E;
   color: white;
 }
-.cliborder{
+.cliborder {
   border-style: solid;
   border-width: 1px;
-  margin: 15px 0 5px 0;
+  border-color: #F8991D;
+  overflow: auto;
+  font-size: 110%;
+  margin: 10px 0 5px 0;
   padding: 10px 10px 10px 10px;
 }
 p.indent {

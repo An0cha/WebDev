@@ -14,7 +14,6 @@
     </head>
 
     <body>
-        
 
     <!-- Navigation bar -->
     <div class="topnav" id="myTopnav">
@@ -27,53 +26,94 @@
         </a>
     </div>
     <div class="cliborder">
-        <h3>Boto3 List existing buckets</h3>        
-        <p>once you have configured your aws profile, create a new python file and copy command below to your python file</p>
-        <p>import boto3</p>
-        <p>s3 = boto3.client('s3')</p>
-        <p>response = s3.list_buckets()</p>
-        <p>print('Existing buckets:')</p>
-        <p>for bucket in response['Buckets']:</p>
-        <p class="codeindent">print(f'  {bucket["Name"]}')</p>
-    </div>
-   
-    <div class="cliborder">
-        <h3>How to list IAM users on AWS using boto3</h3>
-        <p>once you have configured your aws profile, create a new python file and copy command below to your python file</p>
-        <p>import boto3</p>
-        <p>aws_mag_con=boto3.Session(profile_name="default")</p>
-        <p>iam_con=aws_mag_con.resource('iam')</p>
+        <h3>How to create EC2 on AWS using boto3</h3>
+        Once you have configured your aws profile, create a new python file and copy command below to your python file</p>
+        <pre>        
+        <code>
+        import boto3
 
-        <p>for each_user in iam_con.users.all():</p>
-            <p class="codeindent">print(each_user.name)</p>
-        
+        AWS_REGION = "us-east-1"
+        EC2_RESOURCE = boto3.resource('ec2', region_name=AWS_REGION)
+        KEY_PAIR_NAME = 'VAKey'
+        AMI_ID = 'ami-03ededff12e34e59e'
+
+        instances = EC2_RESOURCE.create_instances(
+            MinCount = 1,
+            MaxCount = 1,
+            ImageId=AMI_ID,
+            InstanceType='t2.micro',
+            KeyName=KEY_PAIR_NAME,
+            TagSpecifications=[
+                {
+                    'ResourceType': 'instance',
+                    'Tags': [
+                        {
+                            'Key': 'Name',
+                            'Value': 'my-ec2-instance'
+                        },
+                    ]
+                },
+            ]
+        )
+
+        for instance in instances:
+            print(f'EC2 instance "{instance.id}" has been launched')
+            
+            instance.wait_until_running()
+            print(f'EC2 instance "{instance.id}" has been started')
+        </code>
+    </pre>
     </div>
-<!--
-    <div>
-    <textarea class="textarea" name="lists3bucket" rows="10" cols="50">
+    <div class="cliborder">
+        <h3>Boto3 List existing buckets</h3>        
+        <p>Once you have configured your aws profile, create a new python file and copy command below to your python file</p>
+        <pre>
+        <code>
         import boto3
         s3 = boto3.client('s3')
         response = s3.list_buckets()
+
+        # Output the bucket names
         print('Existing buckets:')
         for bucket in response['Buckets']:
             print(f'  {bucket["Name"]}')
-    </textarea>
+
+        </code>
+    </pre>
     </div>
---> 
+    <div class="cliborder">
+        <h3>How to list IAM users on AWS using boto3</h3>
+        <p>once you have configured your aws profile, create a new python file and copy command below to your python file</p>
+        <pre>
+            <code>
+        import boto3
+
+        aws_mag_con=boto3.Session(profile_name="default")
+        iam_con=aws_mag_con.resource('iam')
+        
+        for each_user in iam_con.users.all():
+            print(each_user.name)
+        
+            </code>
+        </pre>
+    </div>
     <div class = cliborder>
         <h3>Powershell for fun</h3>
-        <p>This is how to extract last downloaded file from a specific location to another location using Powershell command line interface.</p>
-        <p>- Create new variable and add specific path to variable</p>
-        <p>$dir = "E:\data\zip"</p>
-        <p>- Create another variable then add Powershell Command get the lastest filename</p>
-        <p>- Create another variable to store only filename without extention for example lastest downloaded.zip</p>
-        <p>$latestFile = Get-ChildItem -Path $dir | Sort-Object LastWriteTime | Select-Object -Last 1 </p>
-        <p>- I wanted to expand only filename to new destination, so I use PowerShell .BaseName to get only file name.</p>
-        <p>$fileNoExt = $latestFile.BaseName</p>
-        <p>- I wanted to see file name, so I use command Write-Output follow by variable name</p>
-        <p>Write-Output $fileNoExt</p>
-        <p>- The following command will extract downloaded.zip to destination, -Force will override existing files, -Verbose will display progress</p>
-        <p>Expand-Archive -Path e:\data\zip\$latestFile -DestinationPath j:\data\$fileNoExt -Force -Verbose</p>
+        <pre>
+            <code>
+        This is how to extract last downloaded file from a specific location to another location using Powershell command line interface.
+        - Create new variable and add specific path to variable
+        $dir = "E:\data\zip"
+        - Create another variable then add Powershell Command get the lastest filename
+        $latestFile = Get-ChildItem -Path $dir | Sort-Object LastWriteTime | Select-Object -Last 1 
+        - I wanted to expand only filename to new destination, so I use PowerShell .BaseName to get only file name.
+        $fileNoExt = $latestFile.BaseName
+        - I wanted to see file name, so I use command Write-Output follow by variable name
+        Write-Output $fileNoExt
+        - The following command will extract downloaded.zip to destination, -Force will override existing files, -Verbose will display progress
+        Expand-Archive -Path e:\data\zip\$latestFile -DestinationPath j:\data\$fileNoExt -Force -Verbose
+            </code>
+        </pre>            
     </div>      
 </body>
 <footer class="grow" >
