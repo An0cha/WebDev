@@ -312,6 +312,7 @@ li{
 /*grow image in footer*/
 .grow img{
     transition: 1s ease;
+    padding: 0.5em;
     }
     
 .grow img:hover{
