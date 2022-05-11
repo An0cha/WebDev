@@ -10,7 +10,6 @@ div {
 .main {
   animation: fade-in-move-down 0.9s;
 }
-
 @keyframes fade-in-move-down {
   0% {
     opacity: 0;
@@ -309,6 +308,11 @@ li{
   width: 100%;
   height: auto;
 }
+
+.mTable {
+  width: 100%;
+}
+
 /*grow image in footer*/
 .grow img{
     transition: 1s ease;
