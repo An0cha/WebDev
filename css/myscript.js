@@ -52,3 +52,36 @@ function moreLessFunction() {
   }
 }
 
+/* customer element */
+class MyFooter extends HTMLElement {
+  connectedCallback() {
+      this.innerHTML = `
+      <footer class="grow" >
+                  <a href="https://www.linkedin.com/in/anocha-yudhthonglang-29b5a848/" target="_blank"><img src="./images/linkedin_icon.png" width="40px"></a>
+                  <a href="https://www.facebook.com/arno.kung.5/" target="_blank"><img src="./images/fb_icon.png" alt="see mo on faceBook" width="40px"></a>
+                  <a href="https://github.com/An0cha" target="_blank"><img src="./images/GitHub-Mark-Light-64px.png" alt="GitHub Profile" width="40px"></a>
+                  <div class="right"><a href="index.html" style="text-align: right;"><img src="./images/arrowUp.png" width="25px"></a></div>
+              </footer>  
+              `
+  }
+}
+
+customElements.define('my-footer', MyFooter)
+
+class MyNav extends HTMLElement {
+  connectedCallback() {
+      this.innerHTML = `
+      <div class="topnav" id="myTopnav">
+        <a class="active" href="index.html">Start</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="cli.html">CLI for fun</a>
+        <a href="about.html">Who Am I</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+              `
+  }
+}
+
+customElements.define('my-nav', MyNav)
