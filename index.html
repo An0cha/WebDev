@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-<a name="top"></a>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="./css/styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="./css/myscript.js"></script>
-<script>
-    fetch('https://92pa1yuyzc.execute-api.us-east-1.amazonaws.com/Prod/get')
-          .then(response => response.json())
-          .then((data) => {
-              document.getElementById('replaceme').innerText = data.count
-          })
-  </script>
-<title>Keep Learning</title>
-</head>
-<body>
+<div>
+    <head>
+        <title>Keep Learning</title>
+        <my-header></my-header>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script defer src="./css/myscript.js"></script>
+    </head>
+    
+    <body>
     <my-nav></my-nav>
     <p id="motto">KEEP LEARNING</p>
 

@@ -54,6 +54,16 @@ function moreLessFunction() {
 
 /* customer element */
 
+class MyHeader extends HTMLElement {
+  connectedCallback() {
+      this.innerHTML = `
+      <div id ="logo"><a href="index.html"> <img src="./images/rienit.png" alt="RIENIT" width = "100px"></a></div>
+              `
+  }
+}
+
+customElements.define('my-header', MyHeader)
+
 class MyNav extends HTMLElement {
   connectedCallback() {
       this.innerHTML = `

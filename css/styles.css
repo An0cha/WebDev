@@ -75,11 +75,13 @@ div {
         width: auto;
     }
 }
+
 #logo {
-    background-color: darkgrey;
-    width: 200px;
-    margin: auto;
+  width: auto;
+  margin: auto;
+  text-align: center;
 }
+
 th.nologo {
     background-color:#ddd;
     width: 80px;
