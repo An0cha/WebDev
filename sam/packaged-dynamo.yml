@@ -11,4 +11,5 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
-    
+    Metadata:
+      SamResourceId: VisitorCountTable
