@@ -214,6 +214,12 @@ end menu navigation*/
 }
 /*typewriter ends here*/
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 #saa-c02-logo {
   float: left;
   padding-top: 1em;
