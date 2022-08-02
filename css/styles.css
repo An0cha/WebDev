@@ -257,12 +257,13 @@ h2 a {
   text-decoration: none;
   color: #F8991D;
 }
+
 #motto {
     position: relative;
     text-transform: uppercase;
     text-align: center;
     z-index: 0;
-    /*text-shadow: -2px -2px #FF9900;*/
+    text-shadow: -2px -2px #0073BB;
     font-size: 3em;
     letter-spacing: 4px;
     overflow: hidden;
@@ -282,6 +283,7 @@ h2 a {
       background-position: 500%;
     }
   }
+
 
 #challenge {
   margin-top: 0px;
