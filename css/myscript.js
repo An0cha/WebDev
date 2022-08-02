@@ -68,10 +68,10 @@ class MyNav extends HTMLElement {
   connectedCallback() {
       this.innerHTML = `
       <div class="topnav" id="myTopnav">
-        <a class="active" href="index.html">Start</a>
-        <a href="blogs.html">Blogs</a>
-        <a href="cli.html">CLI for fun</a>
-        <a href="about.html">Who Am I</a>
+        <a class="active" href="index.html">START</a>
+        <a href="blogs.html">BLOGS</a>
+        <a href="cli.html">CLI FOR FUN</a>
+        <a href="about.html">WHO AM I</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
