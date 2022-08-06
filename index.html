@@ -1,87 +1,342 @@
-<!DOCTYPE html>
-<html>
-<div>
-    <head>
-        <title>Keep Learning</title>
-        <my-header></my-header>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="utf-8" />
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href="./css/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script defer src="./css/myscript.js"></script>
-    </head>
-    
-    <body>
-    <my-nav></my-nav>
-    <p id="motto">KEEP LEARNING</p>
-    
-    <!--
-    <div>
-        <img class="center" src="./images/FrontEndDiagram.png" width="600">
-    </div>        
-    -->
-    <div id="challenge">
-        <h2><a href="https://cloudresumechallenge.dev/docs/the-challenge/aws/" target="_blank">The Cloud Resume Challenge - AWS</a></h2>
-    
-        <ol>
-            <li>Certification</li>        
-                <p>Your resume needs to have the <a href ="https://aws.amazon.com/certification/certified-cloud-practitioner/" target="_blank">AWS Cloud Practitioner certification</a> on it. This is an introductory certification that orients you on the industry-leading AWS cloud, if you have a more advanced AWS cert, that's fine but not expected. You can sit this exam online for $100 USD. A Cloud Guru offers exam prep resources.</p>
-            <li>HTML</li>
-                <p>Your resume needs to be written in <a href = "https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">HTML</a>. Not a Word doc, not a PDF. <a href ="https://codepen.io/emzarts/pen/OXzmym" target="_blank">Here is an example of what I mean.</a></a></p>
-                
-            <li>CSS</li>
-                <p>Your resume needs to be styled with <a href="https://www.w3schools.com/css/" target="_blank">CSS</a>. No worries if you're not a designer - neither am I. It doesn't have to be fancy. But we need to see something other than raw HTML when we open the webpage.</p>
-                
-            <li>Static Website</li>
-                <p>Your HTML resume should be deployed online as an <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html" target="_blank">Amazon S3 static website</a>. Services like Netlify and GitHub Pages are great and I would normally recommend them for personal static site deployments, but they make things a little too abstract for our purposes here. Use S3.</p>
-                
-            <li>HTTPS</li>
-                <p>The S3 website URL should use <a href ="https://www.cloudflare.com/learning/ssl/what-is-https/" target="_blank">HTTPS</a> for security. You will need to use <a href ="https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-s3-amazon-cloudfront-a-match-made-in-the-cloud/" target="_blank">Amazon CloudFront</a> to help with this.</p>
-                
-            <li>DNS</li>
-                <p>Point a custom DNS domain name to the CloudFront distribution, so your resume can be accessed at something like my-c00l-resume-website.com. You can use <a href ="https://aws.amazon.com/route53/" target="_blank">Amazon Route 53</a> or any other DNS provider for this. A domain name usually costs about ten bucks to register.</p>
-                
-            <li>Javascript</li>
-                <p>Your resume webpage should include a visitor counter that displays how many people have accessed the site. You will need to write a bit of <a href ="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Javascript</a> to make this happen. Here is a <a href ="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank">helpful tutorial</a> to get you started in the right direction.</p>
-                
-            <li>Database</li>
-                <p>The visitor counter will need to retrieve and update its count in a database somewhere. I suggest you use Amazon's <a href ="https://aws.amazon.com/dynamodb/" target="_blank">DynamoDB</a> for this. (Use on-demand pricing for the database and you'll pay essentially nothing, unless you store or retrieve much more data than this project requires.) Here is a <a href ="https://linuxacademy.com/course/dynamo-db-deep-dive/" target="_blank">great free course</a> on DynamoDB.</p>
-                
-            <li>API</li>
-                <p>Do not communicate directly with DynamoDB from your Javascript code. Instead, you will need to create an <a href ="https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f" target="_blank">API</a> that accepts requests from your web app and communicates with the database. I suggest using AWS's API Gateway and Lambda services for this. They will be free or close to free for what we are doing.</p>
-                
-            <li>Python</li>
-                <p>You will need to write a bit of code in the Lambda function; you could use more Javascript, but it would be better for our purposes to explore Python - a common language used in back-end programs and scripts - and its <a href ="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html" target="_blank">boto3 library for AWS</a>. Here is a good, free <a href="https://www.learnpython.org/" target="_blank">Python tutorial</a>.</p>
-                
-            <li>Tests</li>
-                <p>You should also include some tests for your Python code. <a href ="https://realpython.com/python-testing/" target="_blank">Here are some resources</a> on writing good Python tests.</p>
-                
-            <li>Infrastructure as Code</li>
-                <p>You should not be configuring your API resources - the DynamoDB table, the API Gateway, the Lambda function - manually, by clicking around in the AWS console. Instead, define them in an <a href ="https://aws.amazon.com/serverless/sam/" target="_blank">AWS Serverless Application Model (SAM) template</a> and deploy them using the AWS SAM CLI. This is called “infrastructure as code” or IaC. It saves you time in the long run.</p>
-                
-            <li>Source Control</li>
-                <p>You do not want to be updating either your back-end API or your front-end website by making calls from your laptop, though. You want them to update automatically whenever you make a change to the code. (This is called <a href="https://help.github.com/en/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration" target="_blank">continuous integration and deployment, or CI/CD</a>.) Create a <a href ="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository" target="_blank">GitHub repository</a> for your backend code.</p>
-                
-            <li>CI/CD (Back end)</li>
-                <p>Set up <a href ="https://help.github.com/en/actions/getting-started-with-github-actions/about-github-actions" target="_blank">GitHub Actions</a> such that when you push an update to your Serverless Application Model template or Python code, your Python tests get run. If the tests pass, the SAM application should get packaged and deployed to AWS.</p>
-                
-            <li>CI/CD (Front end)</li>
-                <p>Create a second GitHub repository for your website code. Create GitHub Actions such that when you push new website code, the S3 bucket automatically gets updated. (You may need to <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html" target="_blank">invalidate your CloudFront cache</a> in the code as well.) Important note: DO NOT commit AWS credentials to source control! Bad hats will find them and use them against you!</p>
-                
-            <li>Blog post</li>
-                <p>Finally, in the text of your resume, you should link a short blog post describing some things you learned while working on this project. <a href ="https://dev.to/" target="_blank">Dev.to</a> is a great place to publish if you don't have your own blog.</p>
-                <p>And that's the gist of it! For strategies, tools, and further challenges to help you get hired in cloud, check out <a href="https://forrestbrazeal.gumroad.com/l/cloud-resume-challenge-book" target="_blank">the Cloud Resume Challenge book</a>.</p>
-        </ol>
-    </div>
-    <my-footer></my-footer>
+<!DOCTYPE HTML>
 <!--
-<p>
-    Visitors:
-    <span id="replaceme" />
-</p>
+	Miniport by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-</div>
-</body>
+<html>
+	<head>
+		<title>Anocha Yudhthonglang</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="#top">RUN</a></li>
+					<li><a href="#blogs">BLOGS</a></li>
+					<li><a href="#portfolio">CLI FOR FUN</a></li>
+					<li><a href="#contact">WHO AM I</a></li>
+				</ul>
+			</nav>
+
+		<!-- Home -->
+			<article id="top" class="wrapper style1">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-5-large col-12-medium">
+							<span class="image fit"><img src="images/AnochaProfilePic.jpg" alt="" /></span>
+						</div>
+						<div class="col-8 col-7-large col-12-medium">
+							<header>
+								<h1>Hi. I'm <strong>Anocha</strong>.</h1>
+							</header>
+							<p id="summary">... I enjoy studying and learning ... </p>
+							<p>Hands-on experience in AWS provisioning and proficient knowledge of AWS services. Have experience in various applications, planning, installing and configuring Servers and Workstations. Certified AWS Solutions Architect with extensive experience in the IT industry. Team-player who can also work independently and provide excellent customer service.</p>
+							<a href="#blogs" class="button large scrolly">Learn about what I do</a>
+						</div>
+					</div>
+				</div>
+			</article>
+
+		<!-- blogs -->
+			<article id="blogs" class="wrapper style2">
+				<div class="container">
+					<header>
+						<h2>Here's all the stuff I do.</h2>
+						<p>have fun running your code</p>
+					</header>
+					<div class="row aln-center">
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<!--<span class="icon featured fa-comments"></span>-->
+								<a href="https://www.linkedin.com/pulse/provision-aws-infrastructure-using-terraform-anocha-yudhthonglang/" target="_blank"><img src="images/Cloud.png" width="120" alt="" /></a>
+								<h3> <a href="https://www.linkedin.com/pulse/provision-aws-infrastructure-using-terraform-anocha-yudhthonglang/" target="_blank">Provision AWS infrastructure</a></h3>
+								<p>Infrastructure as code is super fun to learn. Click link above to see some example.</p>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<!--<span class="icon solid featured fa-camera-retro"></span>-->
+								<a href="https://www.linkedin.com/pulse/deploy-jenkins-container-docker-desktop-windows-anocha-yudhthonglang/" target="_blank"><img src="images/Container.png" width="120" alt="Docker Container"></a>
+								<h3><a href="https://www.linkedin.com/pulse/deploy-jenkins-container-docker-desktop-windows-anocha-yudhthonglang/" target="_blank">Deploy Jenkins container</h3></a>
+								<p>Stuyding is the key to success. see more content about fun stuff from the link above.</p>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<!--<span class="icon featured fa-thumbs-up"></span>-->
+								<a href="https://www.linkedin.com/pulse/aws-single-sign-onsso-anocha-yudhthonglang/"><img src="images/sso.png" width="100" alt="AWS SSO"></a>
+								<h3><a href="https://www.linkedin.com/pulse/aws-single-sign-onsso-anocha-yudhthonglang/">AWS Single Sign On</h3></a>
+								<p>AWS IAM Identity Center (Successor to AWS Single Sign-On)</p>
+							</section>
+						</div>
+					</div>
+					<footer>
+						<p>See more fun stuff with the command line</p>
+						<a href="#portfolio" class="button large scrolly">CLI is the way to go</a>
+					</footer>
+				</div>
+			</article>
+
+		<!-- Portfolio -->
+			<article id="portfolio" class="wrapper style3">
+				<div class="container">
+					<header>
+						<h2>Here’s some stuff I made recently.</h2>
+						<!--<p>Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat.</p>-->
+					</header>
+					<div class="row">
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#boto3" class="scrolly" class="image featured"><img src="images/Boto3.png" height="200"></a>
+								<h3><a href="#boto3" class="scrolly">Boto3 SDK</a></h3>
+								<p>Get started quickly using AWS with boto3</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#botos3bucket" class="scrolly" class="image featured" ><img src="images/S3objects.png" height="200" alt="" /></a>
+								<h3><a href="#botos3bucket" class="scrolly">Boto3 listing buckets</a></h3>
+								<p>List your buckets from boto3.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#boto3iam" class="scrolly"><img src="images/Iam.png" height="200" alt="" /></a>
+								<h3><a href="#boto3iam">How to list IAM on AWS</a></h3>
+								<p>Securely manage identities and access to AWS services and resources.</p>
+							</article>
+						</div>
+						<!--
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+								<h3><a href="#">Tempus dolore</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+								<h3><a href="#">Feugiat aliquam</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
+								<h3><a href="#">Sed amet ornare</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						-->
+					</div>
+					<footer>
+						<p></p>
+						<a href="#contact" class="button large scrolly">Get to know me</a>
+					</footer>
+				</div>
+			</article>
+
+		<!-- Contact -->
+			<article id="contact" class="wrapper style4">
+				<div class="container left">
+					<header>
+						<h3>AWS Cloud Administrator</h3>
+						<p>Rivers Construction Group</p>
+						<p>Jessup, MD</p>
+						<p>Apr 2018 - Present</p>
+					</header>
+					<ul style="background-color: none;">
+						<li>Manage AWS accounts, including the setup and configuration of EC2 instances, VPCs, CloudWatch, CloudFront distributions, Route53 hosted zones & health checks.</li>
+						<li>Provision AWS infrastructure using Terraform.</li>
+						<li>Implement CI/CD pipeline utilizing GitHub, Jenkins for deployment and build management system.</li>
+						<li>Configure Security Groups, Network Access Control, IAM roles, and Multi Factor Authentication.</li>
+						<li>Manage AWS S3 storage lifecycle including hosting static website with custom DNS.</li>                                    
+						<li>Maintain Windows server, Active Directory, Deploy antivirus and other applications utilizing group policy.</li>
+					</ul>
+					<header>
+						<h3>Technical Support Manager</h3>
+						<p>Inet Group</p>
+						<p>Rockville, MD</p>
+						<p>February 2014 - March 2018</p>
+					</header>
+					<ul style="background-color: none;">
+						<li>Resolved various issues relating to all POS systems, and CCTV systems including online ordering systems.</li>
+						<li>Built a POS system/CCTV system from ground up including install, update, and upgrade software/hardware.</li>
+						<li>Provided Training to all clients on site and remote training over the phone for how to operate all POS Systems.</li>
+						<li>Implemented, designed, and maintained websites for new and existing customers.</li>
+						<li>Promoted windows small business server 2011 as primary domain controller and join all client computers to domain.</li>                                    
+						<li>Migrated Windows SBS 2011 Domain Controllers to Windows Server 2016.</li>
+					</ul>
+				</div>	
+			</article>
+			<article id="contact" class="wrapper style4">
+				<div class="container left">
+					<header>
+						<h3>System Administrator</h3>
+						<p>UBM Asia Ltd</p>
+						<p>Bangkok, Thailand</p>
+						<p>Sep 2005 - Jul 2009</p>
+						<br>
+						<h3>System Administrator</h3>
+						<p>LTU Asia Aviation Services Co., Ltd</p>
+						<p>Bangkok, Thailand</p>
+						<p>Nov 2004 - Sep 2005</p>
+						<br>
+						<h3>Network Administrator</h3>
+						<p>Montriyont Ltd., Part</p>
+						<p>Ayutthaya, Thailand</p>
+						<p>Jan 2001 - Oct 2003</p>
+					</header>
+				</div>	
+			</article>
+
+			<article id="contact" class="wrapper style4">
+				<div class="container left">
+					<header>
+						<h2>Skills</h2>
+						<hr />
+						<table>
+							<tr>
+								<td>&#8226; Amazon Web Services</td>
+								<td>&#8226; Cloud Architect</td>
+								<td>&#8226; AWS SDK boto3</td>
+								<td>&#8226; AWS CLI</td>
+								<td>&#8226; EC2</td>
+							</tr>
+							<tr>
+								<td>&#8226; EFS, S3, Glacier</td>
+								<td>&#8226; VPC, Route53</td>
+								<td>&#8226; CI/CD, GitHub</td>
+								<td>&#8226; IaaS, PaaS, IaC</td>
+								<td>&#8226; Jira</td>
+							</tr>
+							<tr>
+								<td>&#8226; Terraform, CloudFormation</td>
+								<td>&#8226; Hyper-V, VMware</td>
+								<td>&#8226; Red Hat/Centos</td>
+								<td>&#8226; Windows Server</td>
+								<td>&#8226; AD, GPO</td>
+							</tr>
+							<tr>
+								<td>&#8226; DHCP, DNS, SMB, NFS</td>
+								<td>&#8226; SSH, TCP/IP</td>
+								<td>&#8226; HTML5, CSS</td>
+								<td>&#8226; Analytical Mine</td>
+								<td>&#8226; Collaboration</td>
+							</tr>
+						</table>
+					</header>
+				</div>
+			</article>
+			<article id="contact" class="wrapper style4">
+				<div class="row">
+					<div class="col-12">
+						<h3>... Find me on ...</h3>
+						<ul class="social">
+							<li><a href="https://www.linkedin.com/in/anocha-yudhthonglang/" target="_blank" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>	
+							<li><a href="https://www.facebook.com/arno.kung.5/" target="_blank" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.flickr.com/photos/arnokung" target="_blank" class="icon brands fa-flickr"><span class="label">Flickr</span></a></li>
+							<li><a href="https://github.com/An0cha" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						</ul>
+						<hr />
+					</div>
+				</div>
+				<footer>
+					<ul id="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+			</article>	
+			<article id="boto3" class="wrapper style3">
+				<div class="container left black">
+					<h3>How to create EC2 on AWS using boto3</h3>
+					Once you have configured your <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">aws profile</a>, create a new python file and copy command below to your python file</p>
+					<pre>        
+					<code>
+					import boto3
+			
+					AWS_REGION = "us-east-1"
+					EC2_RESOURCE = boto3.resource('ec2', region_name=AWS_REGION)
+					KEY_PAIR_NAME = 'VAKey'
+					AMI_ID = 'ami-03ededff12e34e59e'
+			
+					instances = EC2_RESOURCE.create_instances(
+						MinCount = 1,
+						MaxCount = 1,
+						ImageId=AMI_ID,
+						InstanceType='t2.micro',
+						KeyName=KEY_PAIR_NAME,
+						TagSpecifications=[
+							{
+								'ResourceType': 'instance',
+								'Tags': [
+									{
+										'Key': 'Name',
+										'Value': 'my-ec2-instance'
+									},
+								]
+							},
+						]
+					)
+			
+					for instance in instances:
+						print(f'EC2 instance "{instance.id}" has been launched')
+						
+						instance.wait_until_running()
+						print(f'EC2 instance "{instance.id}" has been started')
+					</code>
+				</pre>
+				</div>
+			</article>		
+			<article id="botos3bucket" class="wrapper style3">
+				<div class="container left black">
+					<h3>Boto3 List existing buckets</h3>        
+					<p>Once you have configured your aws profile, create a new python file and copy command below to your python file</p>
+					<pre>
+					<code>
+					import boto3
+					s3 = boto3.client('s3')
+					response = s3.list_buckets()
+			
+					# Output the bucket names
+					print('Existing buckets:')
+					for bucket in response['Buckets']:
+						print(f'  {bucket["Name"]}')
+			
+					</code>
+					</pre>
+				</div>
+			</article>
+			<article id="boto3iam" class="wrapper style3">
+				<div class="container left black">
+					<h3>How to list IAM users on AWS using boto3</h3>
+					<p>once you have configured your aws profile, create a new python file and copy command below to your python file</p>
+					<pre>
+						<code>
+					import boto3
+
+					aws_mag_con=boto3.Session(profile_name="default")
+					iam_con=aws_mag_con.resource('iam')
+					
+					for each_user in iam_con.users.all():
+						print(each_user.name)
+					
+						</code>
+					</pre>
+				</div>
+			</article>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
