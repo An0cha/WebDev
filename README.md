@@ -6,4 +6,4 @@ The purpose of this repository is to create online resume utilizing the power of
 
 I found this challeng on https://cloudresumechallenge.dev/
 
-Here is my current site https://rienit.com
+Here is my current site https://www.rienit.com
